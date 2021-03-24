@@ -21,65 +21,76 @@ namespace JoelHiltonsMovieCollectionEdit.Controllers
             context = cxt;
         }
 
+        // Action for Index page
         public IActionResult Index()
         {
             return View();
         }
 
+        // Action for MyPodcasts page
+        public IActionResult MyPodcasts()
+        {
+            return View();
+        }
+
+        // Get action for MovieForm page
         [HttpGet]
         public IActionResult MovieForm()
         {
             return View();
         }
 
+        // Post action for MovieForm page
         [HttpPost]
         public IActionResult MovieForm(Movies movie)
         {
+            //Add movie to database and saves changes
             context.Movies.Add(movie);
             context.SaveChanges();
             return View("Confirmation", movie);
         }
 
+        // Get action for Edit page
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            //Brings in data from movie selected to edit
             var movie = context.Movies.Where(s => s.MovieID == id).FirstOrDefault();
-
             return View(movie);
         }
 
-        public IActionResult Delete(int id)
-        {
-            var movie = context.Movies.Where(s => s.MovieID == id).FirstOrDefault();
-            string confirm = "You deleted" + movie.Title;
-            
-            context.Movies.Remove(movie);
-            context.SaveChanges();
-
-            
-            return RedirectToAction("MovieList", confirm);
-
-        }
-
-
+        // Post action for Edit page
         [HttpPost]
         public IActionResult Edit(Movies movie)
         {
+            //Finds movie object in database
             var mov = context.Movies.Where(s => s.MovieID == movie.MovieID).FirstOrDefault();
-            context.Movies.Remove(mov);
-            context.Movies.Add(movie);
+            context.Movies.Remove(mov); //Removes original object from database
+            context.Movies.Add(movie); //Adds new object in-place of old object
             context.SaveChanges();
 
             return RedirectToAction("MovieList", context.Movies);
         }
 
-
-
-        public IActionResult MovieList(string confirm)
+        // Action for Delete
+        public IActionResult Delete(int id)
         {
-            ViewBag.Confirmation = confirm;
+            //Finds movie object in database
+            var movie = context.Movies.Where(s => s.MovieID == id).FirstOrDefault();
+            string confirm = "You deleted " + movie.Title;
+            ViewBag.ConfirmDelete = confirm;
+            context.Movies.Remove(movie);
+            context.SaveChanges();
+            return View("MovieList", context.Movies);
+        }
+
+        
+        public IActionResult MovieList()
+        {
             return View(context.Movies);
         }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

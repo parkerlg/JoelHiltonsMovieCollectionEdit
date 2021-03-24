@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JoelHiltonsMovieCollectionEdit.Migrations
 {
     [DbContext(typeof(MovieDBContext))]
-    [Migration("20210323172952_Initial")]
+    [Migration("20210324141600_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,8 +31,8 @@ namespace JoelHiltonsMovieCollectionEdit.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Edited")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Edited")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LentTo")
                         .HasColumnType("TEXT");

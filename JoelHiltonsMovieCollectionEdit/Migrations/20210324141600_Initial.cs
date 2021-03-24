@@ -17,7 +17,7 @@ namespace JoelHiltonsMovieCollectionEdit.Migrations
                     Year = table.Column<string>(nullable: false),
                     Director = table.Column<string>(nullable: false),
                     Rating = table.Column<string>(nullable: false),
-                    Edited = table.Column<bool>(nullable: false),
+                    Edited = table.Column<string>(nullable: true),
                     LentTo = table.Column<string>(nullable: true),
                     Notes = table.Column<string>(maxLength: 25, nullable: true)
                 },

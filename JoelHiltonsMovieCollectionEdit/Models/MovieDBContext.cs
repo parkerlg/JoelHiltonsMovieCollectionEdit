@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace JoelHiltonsMovieCollectionEdit.Models
-
     {
         public class MovieDBContext : DbContext
         {

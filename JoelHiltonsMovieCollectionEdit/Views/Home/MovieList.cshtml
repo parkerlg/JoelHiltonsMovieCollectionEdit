@@ -10,11 +10,11 @@
 <div style="margin:20px">
     <h5>The following are the movies that have been added to the website</h5>
 
-    <h6 style="color:red;">@ViewBag.Confirmation</h6>
+    <h6 style="color:red;">@ViewBag.ConfirmDelete</h6>
 
     <table class="table" style="margin:20px">
         <thead>
-            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To</th><th>Notes</th></tr>
+            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To</th><th>Notes</th><th></th><th></th></tr>
         </thead>
         <tbody>
             @foreach (JoelHiltonsMovieCollectionEdit.Models.Movies x in Model)
@@ -30,7 +30,6 @@
                     <td>@x.Notes</td>
                 
                 <td class="text-center">
-
                     @Html.ActionLink("Edit", "Edit", new {id = x.MovieID}, new { @class = "btn btn-sm btn-primary" })
                 </td>
                 <td class="text-center">

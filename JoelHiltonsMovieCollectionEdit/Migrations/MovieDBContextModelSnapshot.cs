@@ -29,8 +29,8 @@ namespace JoelHiltonsMovieCollectionEdit.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Edited")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Edited")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LentTo")
                         .HasColumnType("TEXT");

@@ -8,11 +8,11 @@
 @model JoelHiltonsMovieCollectionEdit.Models.Movies
 
 <div>
-    <h2>Thanks for submiting a new movie to the database!</h2>
-    <h3>Model.Title</h3>
+    <h2 class="m-3">Thanks for submiting a new movie to the database!</h2>
+    <h3 class="m-3" style="color:red;">Added Movie: @Model.Title</h3>
     <br />
     <br />
 </div>
-<div>
-    Click <a asp-action="MovieList">here</a> to see the Movie List.
+<div class="m-3">
+   <a class= "btn btn-sm btn-primary" asp-action="MovieList">See all movies</a>
 </div>
