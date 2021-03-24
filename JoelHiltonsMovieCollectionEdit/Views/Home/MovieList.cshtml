@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Movie Lists";
+}
+
+@model IEnumerable<JoelHiltonsMovieCollectionEdit.Models.Movies>
+
+<div style="margin:20px">
+    <h5>The following are the movies that have been added to the website</h5>
+
+    <h6 style="color:red;">@ViewBag.Confirmation</h6>
+
+    <table class="table" style="margin:20px">
+        <thead>
+            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+            @foreach (JoelHiltonsMovieCollectionEdit.Models.Movies x in Model)
+            {
+                <tr>
+                    <td>@x.Category</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@x.Edited</td>
+                    <td>@x.LentTo</td>
+                    <td>@x.Notes</td>
+                
+                <td class="text-center">
+
+                    @Html.ActionLink("Edit", "Edit", new {id = x.MovieID}, new { @class = "btn btn-sm btn-primary" })
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Delete", "Delete", new { id = x.MovieID }, new { @class = "btn btn-sm btn-primary" })
+                </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+</div>

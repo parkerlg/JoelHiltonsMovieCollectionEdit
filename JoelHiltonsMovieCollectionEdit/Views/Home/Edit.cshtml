@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    ViewBag.Title = "Movie Form";
+}
+
+@model JoelHiltonsMovieCollectionEdit.Models.Movies
+
+<form asp-action="Edit" method="post" style="padding: 20px;">
+    <input hidden asp-for="MovieID" value="@Model.MovieID" />
+    <div class="form-group">
+        <label asp-for="Category">Category: </label>
+        <input class="form-control" style="width: 300px;" asp-for="Category" value="@Model.Category"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Title">Title: </label>
+        <input class="form-control" style="width: 300px;" asp-for="Title" value="@Model.Title"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Year">Year: </label>
+        <input class="form-control" style="width: 300px;" asp-for="Year" value="@Model.Year"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Director">Director: </label>
+        <input class="form-control" style="width: 300px;" asp-for="Director"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rating">Rating: </label>
+        <select class="form-control" style="width: 300px;" asp-for="Rating">
+            <option value="">Select one</option>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Edited">Edited?: </label>
+        <select class="form-control" style="width: 300px;" asp-for="Edited">
+            <option value="">Select one</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="LentTo">Lent To: </label>
+        <input class="form-control" style="width: 300px;" asp-for="LentTo" value="@Model.LentTo"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Notes">Notes: </label>
+        <input class="form-control" style="width: 300px;" asp-for="Notes" value="@Model.Notes"/>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
